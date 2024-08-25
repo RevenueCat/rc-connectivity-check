@@ -114,7 +114,7 @@ def print_results(hostname: str, results: List[TestResult]):
 
         print(f"  - {color(result.ip, Fore.YELLOW)}: {res}")
         print(
-            f"    Latencies (min/max/avg): {result.avg_latency*1000:.1f}ms / {result.max_latency*1000:.1f}ms / {result.avg_latency*1000:.1f}ms"
+            f"    Latencies (min/max/avg): {result.min_latency*1000:.1f}ms / {result.max_latency*1000:.1f}ms / {result.avg_latency*1000:.1f}ms"
         )
 
 
