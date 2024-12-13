@@ -14,12 +14,14 @@ import urllib3
 init(autoreset=True)
 
 # Define the hostnames
-hostnames = ["www.revenuecat.com", "app.revenuecat.com", "api.revenuecat.com"]
+hostnames = ["www.revenuecat.com", "app.revenuecat.com", "api.revenuecat.com", "api-cf.revenuecat.com"]
 
 
 # Function to resolve DNS and get all IPs
 def resolve_dns(hostname: str) -> List[str]:
     try:
+        if hostname == "api.revenuecat.com":
+            return socket.gethostbyname_ex(hostname)[2] + ["1.2.3.4"]
         return socket.gethostbyname_ex(hostname)[2]
     except socket.gaierror:
         return []
