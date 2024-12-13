@@ -46,14 +46,14 @@ Resolving hostnames...
   - 54.163.59.173
   - 3.214.67.56
   - 3.223.26.133
-  - 1.2.3.4
+  - <broken_id>
 
 Connectivity check...
-ERROR: Failed to connect to api.revenuecat.com at 1.2.3.4: (<urllib3.connection.HTTPSConnection object at 0x105e60b90>, 'Connection to 1.2.3.4 timed out. (connect timeout=5)')
-ERROR: Failed to connect to api.revenuecat.com at 1.2.3.4: (<urllib3.connection.HTTPConnection object at 0x105e611c0>, 'Connection to 1.2.3.4 timed out. (connect timeout=5)')
+ERROR: Failed to connect to api.revenuecat.com at <broken_ip>: (<urllib3.connection.HTTPSConnection object at 0x105e60b90>, 'Connection to <broken_ip> timed out. (connect timeout=5)')
+ERROR: Failed to connect to api.revenuecat.com at <broken_ip>: (<urllib3.connection.HTTPConnection object at 0x105e611c0>, 'Connection to <broken_ip> timed out. (connect timeout=5)')
 [...]
-ERROR: Failed to connect to api.revenuecat.com at 1.2.3.4: (<urllib3.connection.HTTPSConnection object at 0x105e60440>, 'Connection to 1.2.3.4 timed out. (connect timeout=5)')
-ERROR: Failed to connect to api.revenuecat.com at 1.2.3.4: (<urllib3.connection.HTTPSConnection object at 0x105e78ef0>, 'Connection to 1.2.3.4 timed out. (connect timeout=5)')
+ERROR: Failed to connect to api.revenuecat.com at <broken_ip>: (<urllib3.connection.HTTPSConnection object at 0x105e60440>, 'Connection to <broken_ip> timed out. (connect timeout=5)')
+ERROR: Failed to connect to api.revenuecat.com at <broken_ip>: (<urllib3.connection.HTTPSConnection object at 0x105e78ef0>, 'Connection to <broken_ip> timed out. (connect timeout=5)')
 
 Results for http://www.revenuecat.com:
   - 18.154.22.30: OK
@@ -108,7 +108,7 @@ Results for http://api.revenuecat.com:
     Latencies (min/max/avg): 178.3ms / 186.5ms / 178.3ms
   - 3.223.26.133: OK
     Latencies (min/max/avg): 170.9ms / 177.1ms / 170.9ms
-  - 1.2.3.4: FAILURES [10/10]
+  - <broken_ip>: FAILURES [10/10]
     Latencies (min/max/avg): 5004.7ms / 5007.9ms / 5004.7ms
 
 Results for https://api.revenuecat.com:
@@ -124,7 +124,7 @@ Results for https://api.revenuecat.com:
     Latencies (min/max/avg): 369.5ms / 392.8ms / 369.5ms
   - 3.223.26.133: OK
     Latencies (min/max/avg): 369.6ms / 388.6ms / 369.6ms
-  - 1.2.3.4: FAILURES [10/10]
+  - <broken_ip>: FAILURES [10/10]
     Latencies (min/max/avg): 5006.7ms / 5012.6ms / 5006.7ms
 
 There were some connectivity failures!
@@ -135,7 +135,7 @@ Please help us investigate by following the next steps:
     - macOS: brew install mtr
     - Ubuntu: sudo apt-get install mtr
   - Run mtr using the following command:
-    sudo mtr --report -n --tcp --port=443 --gracetime=5 --timeout=5 1.2.3.4
+    sudo mtr --report -n --tcp --port=443 --gracetime=5 --timeout=5 <broken_ip>
 
 2: Capture network traffic while running this script:
   - In one terminal run:
