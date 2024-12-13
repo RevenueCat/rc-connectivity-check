@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "rc-connectivity-check"
-version = "0.1.4"
+version = "0.1.5"
 description = "Tool to check connectivity to RevenueCat services"
 authors = ["Guillermo Perez <bisho@revenuecat.com>"]
 license = "MIT"
