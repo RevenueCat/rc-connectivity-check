@@ -13,6 +13,7 @@ dependencies = [
 
 [project.scripts]
 rc-connectivity-check = "rc_connectivity_check.checker:main"
+rc_connectivity_check = "rc_connectivity_check.checker:main"
 
 [build-system]
 requires = ["hatchling"]
