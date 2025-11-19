@@ -14,7 +14,7 @@ import urllib3
 init(autoreset=True)
 
 # Define the hostnames
-hostnames = [
+HOSTNAMES = [
     "www.revenuecat.com",
     "app.revenuecat.com",
     "api.revenuecat.com",
@@ -24,12 +24,9 @@ hostnames = [
     "icons.pawwalls.com",
 ]
 
-
 # Function to resolve DNS and get all IPs
 def resolve_dns(hostname: str) -> List[str]:
     try:
-        if hostname == "api.revenuecat.com":
-            return socket.gethostbyname_ex(hostname)[2] + ["1.2.3.4"]
         return socket.gethostbyname_ex(hostname)[2]
     except socket.gaierror:
         return []
@@ -88,7 +85,12 @@ def measure_latency(
             )
             if status_code < 400:
                 ok = True
-            elif status_code == 404 and hostname == "api.revenuecat.com":
+            elif status_code == 404 and hostname.startswith("api"):
+                # We are expecting a 404 for the website endpoints because
+                # we are requesting a non-existing resource
+                ok = True
+            elif not https and status_code == 403 and hostname.startswith("api"):
+                # We are expecting a 403 for the API endpoints without HTTPS
                 ok = True
             else:
                 ok = False
@@ -157,6 +159,12 @@ def main():
         default=5,
         help="Request timeout, in seconds (default: 5)",
     )
+    parser.add_argument(
+        "hostnames",
+        nargs="*",
+        default=HOSTNAMES,
+        help="List of hostnames to check (leave empty to check default list)",
+    )
     args = parser.parse_args()
 
     print("Finding client Public IP...")
@@ -166,7 +174,7 @@ def main():
     print("")
     print("Resolving hostnames...")
     hostname_ips: Dict[str, List[str]] = {}
-    for hostname in hostnames:
+    for hostname in args.hostnames:
         ips = resolve_dns(hostname)
         if not ips:
             print(f"* {color(Fore.CYAN, hostname)}: {error('Failed to resolve')}")
