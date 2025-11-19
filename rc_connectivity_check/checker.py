@@ -14,7 +14,15 @@ import urllib3
 init(autoreset=True)
 
 # Define the hostnames
-HOSTNAMES = ["www.revenuecat.com", "app.revenuecat.com", "api.revenuecat.com", "api-cf.revenuecat.com"]
+HOSTNAMES = [
+    "www.revenuecat.com",
+    "app.revenuecat.com",
+    "api.revenuecat.com",
+    "api-cf.revenuecat.com",
+    "assets.pawwalls.com",
+    "fonts.pawwalls.com",
+    "icons.pawwalls.com",
+]
 
 # Function to resolve DNS and get all IPs
 def resolve_dns(hostname: str) -> List[str]:
