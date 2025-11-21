@@ -5,13 +5,13 @@ This PIP package measures the latencies to various hosts and provides statistics
 ## Installation
 
 ```bash
-pip install rc_connectivity_check
+pip install rc-connectivity-check
 ```
 
 Or, if you have [uv](https://docs.astral.sh/uv/getting-started/installation/) installed, you can just run:
 
 ```bash
-uvx rc_connectivity_check
+uvx rc-connectivity-check
 ```
 
 ## Usage
