@@ -8,6 +8,12 @@ This PIP package measures the latencies to various hosts and provides statistics
 pip install rc_connectivity_check
 ```
 
+Or, if you have [uv](https://docs.astral.sh/uv/getting-started/installation/) installed, you can just run:
+
+```bash
+uvx rc_connectivity_check
+```
+
 ## Usage
 Just run `rc-connectivity-check`
 

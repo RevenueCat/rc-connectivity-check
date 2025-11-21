@@ -1,19 +1,20 @@
-[tool.poetry]
+[project]
 name = "rc-connectivity-check"
-version = "0.1.8"
+version = "0.1.9"
 description = "Tool to check connectivity to RevenueCat services"
-authors = ["Guillermo Perez <bisho@revenuecat.com>"]
-license = "MIT"
+authors = [{ name = "Guillermo Perez", email = "bisho@revenuecat.com" }]
+requires-python = ">=3.9,<4"
 readme = "README.md"
+license = "MIT"
+dependencies = [
+    "requests>=2.32.3,<3",
+    "colorama>=0.4.6,<0.5",
+]
 
-[tool.poetry.dependencies]
-python = "^3.9"
-requests = "^2.32.3"
-colorama = "^0.4.6"
-
-[tool.poetry.scripts]
+[project.scripts]
 rc-connectivity-check = "rc_connectivity_check.checker:main"
+rc_connectivity_check = "rc_connectivity_check.checker:main"
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
